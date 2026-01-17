@@ -1,0 +1,23 @@
+/**
+ * Toast Component Styles
+ */
+
+.toast-icon {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.toast-message {
+    color: var(--text-primary);
+    font-size: 0.9375rem;
+}
+
+.toast {
+    cursor: pointer;
+    min-width: 280px;
+    max-width: 400px;
+}
+
+.toast:hover {
+    opacity: 0.9;
+}

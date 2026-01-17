@@ -1,0 +1,64 @@
+/**
+ * Annotation Form Styles
+ */
+
+.annotation-form-container {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(168, 85, 247, 0.1));
+    border: 1px solid var(--primary-500);
+    border-radius: var(--radius-md);
+    margin: 1rem;
+    overflow: hidden;
+    animation: slideUp 0.3s ease;
+}
+
+.annotation-form-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.annotation-form-header h4 {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.annotation-form-selection {
+    padding: 0.75rem 1rem;
+    font-size: 0.8125rem;
+    color: var(--text-secondary);
+    font-style: italic;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.annotation-form {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.annotation-form textarea {
+    resize: vertical;
+    min-height: 80px;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.annotation-form-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.annotation-form-hint {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.annotation-form-buttons {
+    display: flex;
+    gap: 0.5rem;
+}

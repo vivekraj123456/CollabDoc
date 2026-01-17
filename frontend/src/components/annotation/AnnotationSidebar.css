@@ -1,0 +1,164 @@
+/**
+ * Annotation Sidebar Styles
+ */
+
+.annotation-sidebar {
+    width: 380px;
+    background: var(--bg-card);
+    border-left: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Active Users */
+.active-users {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: rgba(34, 197, 94, 0.1);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.active-users-label {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--success);
+}
+
+.active-users-list {
+    display: flex;
+    gap: 0.25rem;
+}
+
+.active-user-avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: white;
+    border: 2px solid var(--bg-primary);
+    cursor: default;
+}
+
+/* Sidebar Controls */
+.sidebar-controls {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.annotation-stats {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+    font-size: 0.8125rem;
+}
+
+.stat {
+    color: var(--text-muted);
+}
+
+.stat.active {
+    color: var(--primary-400);
+}
+
+.stat.resolved {
+    color: var(--success);
+}
+
+.stat-divider {
+    color: var(--border-color);
+}
+
+.sidebar-filters {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.filter-tabs {
+    display: flex;
+    gap: 0.25rem;
+    background: var(--bg-glass);
+    border-radius: var(--radius);
+    padding: 0.25rem;
+}
+
+.filter-tab {
+    flex: 1;
+    padding: 0.5rem 0.75rem;
+    background: transparent;
+    border: none;
+    border-radius: var(--radius-sm);
+    color: var(--text-secondary);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.filter-tab:hover {
+    color: var(--text-primary);
+}
+
+.filter-tab.active {
+    background: var(--primary-600);
+    color: white;
+}
+
+.search-input {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+}
+
+/* Annotations List */
+.annotations-list {
+    flex: 1;
+    overflow: hidden;
+    padding: 1rem;
+}
+
+.virtualized-list {
+    overflow-x: hidden !important;
+}
+
+.virtualized-list>div {
+    padding-bottom: 0.75rem;
+}
+
+.no-annotations {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-muted);
+    font-size: 0.9375rem;
+}
+
+@media (max-width: 1200px) {
+    .annotation-sidebar {
+        width: 320px;
+    }
+}
+
+@media (max-width: 900px) {
+    .annotation-sidebar {
+        position: fixed;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+        max-width: 400px;
+        z-index: 200;
+        transform: translateX(100%);
+        transition: transform var(--transition-slow);
+    }
+
+    .annotation-sidebar.open {
+        transform: translateX(0);
+    }
+}

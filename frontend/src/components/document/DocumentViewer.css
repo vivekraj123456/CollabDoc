@@ -1,0 +1,65 @@
+/**
+ * Document Viewer Styles
+ */
+
+.document-viewer {
+    flex: 1;
+    overflow: auto;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+}
+
+.document-content {
+    padding: 2rem;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--text-primary);
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-family: 'Georgia', serif;
+    max-width: 100%;
+    user-select: text;
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+}
+
+.text-segment {
+    border-radius: 2px;
+}
+
+.text-segment.has-annotation {
+    position: relative;
+}
+
+.text-segment.has-annotation:hover {
+    filter: brightness(1.2);
+}
+
+.text-segment.selected {
+    animation: pulse-highlight 1s ease-in-out;
+}
+
+@keyframes pulse-highlight {
+
+    0%,
+    100% {
+        filter: brightness(1);
+    }
+
+    50% {
+        filter: brightness(1.3);
+    }
+}
+
+/* Selection styles */
+.document-content::selection {
+    background: var(--primary-500);
+    color: white;
+}
+
+.document-content::-moz-selection {
+    background: var(--primary-500);
+    color: white;
+}
