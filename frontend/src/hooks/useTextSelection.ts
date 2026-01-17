@@ -19,7 +19,7 @@ export function useTextSelection({
 }: UseTextSelectionOptions) {
     const [selection, setSelection] = useState<TextSelection | null>(null);
     const [isSelecting, setIsSelecting] = useState(false);
-    const selectionTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+    const selectionTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
     const getTextOffset = useCallback((node: Node, offset: number): number => {
         const container = containerRef.current;
@@ -102,6 +102,12 @@ export function useTextSelection({
             // Check if selection is within our container
             const range = windowSelection.getRangeAt(0);
             const container = containerRef.current;
+            
+            if (!container) {
+                setSelection(null);
+                setIsSelecting(false);
+                return;
+            }
             
             // Check if either the start or end container is within our element
             const isWithinContainer = 

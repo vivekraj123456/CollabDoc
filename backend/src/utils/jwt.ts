@@ -22,9 +22,14 @@ export function generateToken(user: IUserDocument): string {
         username: user.username,
     };
 
-    return jwt.sign(payload, config.jwtSecret, {
-        expiresIn: config.jwtExpiresIn,
-    });
+    const token = jwt.sign(
+        payload,
+        config.jwtSecret as string,
+        {
+            expiresIn: config.jwtExpiresIn as string,
+        } as any
+    );
+    return token;
 }
 
 /**

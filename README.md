@@ -193,26 +193,47 @@ Navigate to `http://localhost:5173`
 
 ## 🌐 Deployment
 
-### Railway (Recommended)
-1. Create a Railway project
-2. Add MongoDB service
-3. Deploy backend from GitHub
-4. Set environment variables
-5. Deploy frontend (or use Vercel/Netlify)
+### Quick Start - Deploy to Vercel + Railway/Render
 
-### Environment Variables (Production)
-```
-# Backend
+**See [DEPLOYMENT.md](./DEPLOYMENT.md) for complete step-by-step instructions.**
+
+#### TL;DR - 3 Services to Deploy:
+
+1. **Database**: MongoDB Atlas (free tier)
+   - https://www.mongodb.com/cloud/atlas
+   - Create cluster and user
+   - Copy connection string
+
+2. **Backend**: Railway or Render
+   - Railway: https://railway.app (recommended - $5/month credit)
+   - Render: https://render.com (free but sleeps after 15 min)
+   - Deploy with GitHub, set environment variables
+
+3. **Frontend**: Vercel (always free)
+   - https://vercel.com
+   - Deploy from GitHub
+   - Set `VITE_API_URL` and `VITE_SOCKET_URL`
+
+#### Environment Variables
+
+**Backend** (`MONGODB_URI`, `JWT_SECRET`, `FRONTEND_URL`, etc.)
+```bash
 NODE_ENV=production
-PORT=5000
-MONGODB_URI=mongodb+srv://...
-JWT_SECRET=<strong-secret>
-FRONTEND_URL=https://your-frontend.com
-
-# Frontend
-VITE_API_URL=https://your-backend.com
-VITE_SOCKET_URL=https://your-backend.com
+MONGODB_URI=mongodb+srv://user:pass@cluster.mongodb.net/collabdoc
+JWT_SECRET=generate-strong-random-key
+FRONTEND_URL=https://your-vercel-app.vercel.app
 ```
+
+**Frontend** (Vercel)
+```
+VITE_API_URL=https://your-backend.railway.app/api
+VITE_SOCKET_URL=https://your-backend.railway.app
+```
+
+### Additional Resources
+- Full deployment guide: [DEPLOYMENT.md](./DEPLOYMENT.md)
+- Troubleshooting: See DEPLOYMENT.md section
+- Docker support: Backend includes `Dockerfile` for containerization
 
 ## 🧪 Testing
 
